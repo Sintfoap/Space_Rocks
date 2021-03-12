@@ -21,7 +21,7 @@ class play:
         w.delete('all')
         root.resizable(True, True)
         w.create_text(screen_width / 2, screen_height / 2, font=("Fixedsys",50,'bold'), text='Space Rocks')
-        play_button = Button(root,text='play?',command=self.play,font=('Fixedsys',20,'bold'),fg='white')
+        play_button = Button(root,text='play?',command=self.play,font=('Fixedsys',20,'bold'),)
         play_button.configure(width = 10, activebackground = "#33B5E5", relief = FLAT)
         _ = w.create_window(screen_width / 2 - 100, screen_height / 2 + 80, anchor=NW, window=play_button)
         HS.Highscore_button()
@@ -49,14 +49,14 @@ class highscores:
 
 
     def Highscore_button(self):
-        highscore_button = Button(root,text='Highscores',command=self.print_highscores,font=('Fixedsys',20,'bold'),fg='white')
+        highscore_button = Button(root,text='Highscores',command=self.print_highscores,font=('Fixedsys',20,'bold'))
         highscore_button.configure(width = 10, activebackground = "#33B5E5", relief = FLAT)
         _ = w.create_window(screen_width / 2 - 100, screen_height / 2 + 150, anchor=NW, window=highscore_button)
 
 
     def print_highscores(self):
         w.delete('all')
-        back_button = Button(root,text='Back',command=self.Back,font=('Fixedsys',20,'bold'),fg='white')
+        back_button = Button(root,text='Back',command=self.Back,font=('Fixedsys',20,'bold'))
         back_button.configure(width = 10, activebackground = "#33B5E5", relief = FLAT)
         _ = w.create_window(150,0,anchor=NE, window=back_button)
         if not os.path.isdir('./highscores'):
@@ -69,10 +69,10 @@ class highscores:
             current_highscores_file = current_highscores_file.split('\n')
             highscore_set = 0
             highscores_per_column = 18
-            for i in range(50, 1951, 150):
+            for i in range(70, 1951, 150):
                 k = 100
                 for line in enumerate(current_highscores_file[highscore_set:highscore_set+highscores_per_column]):
-                    w.create_text(i,k,text=line[1:],font=('Fixedsys',15,'bold'),fg='white')
+                    w.create_text(i,k,text=line[1:],font=('Fixedsys',15,'bold'))
                     k += 50
                 highscore_set += highscores_per_column   
 
